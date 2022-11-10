@@ -8,7 +8,7 @@ const welcome = (request, response) => {
 const getAllNotes = async (request, response) => {
   try {
     const allNotes = await Notes.find();
-    if(!allNotes.length < 0) {
+    if(allNotes.length > 0) {
       return response.json({ message: allNotes })
     } else {
       return response.json({ message: 'No Notes Found...' })
@@ -59,9 +59,15 @@ const createNote = async (request, response) => {
   }
 };
 
-const updateNote = (request, response) => {
-  // response.status(200).render('index', { title: 'Diary App'})
-  // response.status(200).render('index', { title: 'Diary App'})
+const updateNote = async (request, response) => {
+  try {
+    const id = request.params.id;
+    const note = await Notes.findByIdAndUpdate(id, { ...request.body });
+    if(note) return response.json({ note })
+    return response.json({ message: 'No Updates made...' })
+  } catch (error) {
+    console.log({ name: error.name, message: error.message, stack: error.stack });
+  }
 };
 
 const deleteNote = (request, response) => {
