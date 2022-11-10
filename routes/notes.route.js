@@ -7,7 +7,8 @@ const {
   getAllNotes,
   getOneNote,
   createNote,
-  updateNote
+  updateNote,
+  deleteNote
 
 } = require('../controllers/notes.controllers');
 
@@ -21,6 +22,6 @@ route.post('/create/note', createNote);
 
 route.patch('/update/note/:id', updateNote);
 
-route.delete('/delete/note/:id');
+route.delete('/delete/note/:id', deleteNote);
 
 module.exports = route;
