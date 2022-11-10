@@ -70,9 +70,15 @@ const updateNote = async (request, response) => {
   }
 };
 
-const deleteNote = (request, response) => {
-  // response.status(200).render('index', { title: 'Diary App'})
-  // response.status(200).render('index', { title: 'Diary App'})
+const deleteNote = async (request, response) => {
+  try {
+    const id = request.params.id;
+    const note = await Notes.findByIdAndDelete(id);
+    if(note) return response.json({ message: 'Note Successfully Deleted..' })
+    return response.json({ message: 'Error trying to delete note..' })
+  } catch (error) {
+    console.log({ name: error.name, message: error.message, stack: error.stack });
+  }
 };
 
 module.exports = {
