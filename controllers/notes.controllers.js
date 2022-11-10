@@ -1,15 +1,16 @@
 const Notes = require('../models/notes.model');
 
 const welcome = (request, response) => {
-  // response.status(200).render('index', { title: 'Diary App'})
-  response.status(200).json({ message: 'Welcome to the Diary App..' })
+  response.status(200).render('index', { title: 'Diary App', message: 'Welcome to the Diary App..' })
+  // response.status(200).json({ message: 'Welcome to the Diary App..' });
 };
 
 const getAllNotes = async (request, response) => {
   try {
-    const allNotes = await Notes.find();
-    if(allNotes.length > 0) {
-      return response.json({ message: allNotes })
+    const notes = await Notes.find();
+    if(notes) {
+      // return response.json({ message: allNotes })
+      return await response.render('index', { messagew: notes })
     } else {
       return response.json({ message: 'No Notes Found...' })
     }
