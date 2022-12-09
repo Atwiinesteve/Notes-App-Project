@@ -11,36 +11,224 @@
 body {
   font-family: 'Quicksand', sans-serif;
   background-color: rgb(246, 251, 255);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: relative;
 }
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+::-webkit-scrollbar {
+  background-color: rgb(255, 255, 255);
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: blue;
+  border-radius: 6px;
+}
+
+::placeholder {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.1rem;
+}
+
+/* 
+  -- Header Styles
+*/
 
 header {
-  width: 100%;
-  height: 20vh;
-  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
-header nav {
+nav {
+  width: 100vw;
+  height: 5vh;
+  padding: 0 3rem;
+  background-color: rgb(255, 255, 255);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
 }
 
-header nav .links--area ul {
+nav .logo--area .logo a img {
+  color: white;
+  width: 40px;
+  height: auto;
+}
+
+nav .links--area ul {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-header nav .links--area ul li {
+nav .links--area ul li {
   list-style: none;
   margin-right: 1rem;
 }
 
-header nav .links--area ul li a {
+nav .links--area ul li a {
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
+  color: rgb(54, 54, 54);
+  font-weight: bolder ;
 }
 
+
+/* 
+  -- Hero Area Styles
+*/
+
+section#hero__area {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGJsb2dzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+section#hero__area .hero__heading {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  line-height: 1.5;
+}
+
+section#hero__area .hero__heading h2 {
+  color: white;
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+section#hero__area .hero__heading h4 {
+  color: white;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+section#hero__area .hero__buttons {
+  margin-top: 1.5rem;
+}
+
+section#hero__area .hero__buttons button {
+  padding: 1rem 1.3rem;
+  color: black;
+  border: none;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+section#hero__area .hero__buttons button:nth-child(1) {
+  margin-right: 1rem;
+}
+
+section#hero__area .hero__buttons button:hover {
+  cursor: pointer;
+}
+
+
+/* 
+  -- Register Form
+*/
+
+.register__area {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url("https://plus.unsplash.com/premium_photo-1661558975897-d0427647a9c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGJsb2dzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register__area form {
+  width: 600px;
+  height: 450px;
+  background: white;
+  padding: 1rem;
+}
+
+.register__area form .form__header {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-bottom: 1.3rem;
+}
+
+.register__area form .form__header h1 {
+  font-size: 2rem;
+  color: black;
+}
+
+.register__area form .form__header p {
+  color: gray;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+}
+
+.register__area form .input__area {
+  margin-top: 1rem;
+}
+
+.register__area form .input__area .input__control {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.register__area form .input__area .input__control label {
+  margin-bottom: 0.6rem;
+  text-transform: capitalize;
+}
+
+.register__area form .input__area .input__control input {
+  padding: 0.7rem 2rem;
+  border: 1px solid rgb(168, 168, 168);
+  outline: none;
+}
+
+.register__area form .input__area .input__control input[type=text]
+.register__area form .input__area .input__control input[type="text"]
+.register__area form .input__area .input__control input[type="email"]
+.register__area form .input__area .input__control input[type=email] {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.1rem;
+}
+
+.register__area form .register__btn {
+  margin: 0 1rem;
+}
+
+.register__area form .register__btn button {
+  width: 100%;
+  text-align: center;
+  color: white;
+  border: none;
+  background: blue;
+  padding: 0.7rem 0;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}

@@ -1,0 +1,37 @@
+<%- include('partials/header');  %>
+
+<%- include('partials/navbar');  %>
+
+<!--  
+    - Register Form
+-->
+
+<div class="register__area">
+
+    <form action="/register" method="post" class="register" autocomplete="off" aria-autocomplete="none">
+        <div class="form__header">
+            <h1>register</h1>
+            <p>register to post a blog</p>
+        </div>
+        <div class="input__area">
+            <div class="input__control">
+                <label for="email">email</label>
+                <input type="email" name="email" id="email" placeholder="example123@gmail.com">
+            </div>
+            <div class="input__control">
+                <label for="username">username</label>
+                <input type="text" name="username" id="username" placeholder="makiezBlogger">
+            </div>
+            <div class="input__control">
+                <label for="password">password</label>
+                <input type="password" name="password" id="password" placeholder="password">
+            </div>
+        </div>
+        <div class="register__btn">
+            <button type="submit">register</button>
+        </div>
+    </form>
+
+</div>
+
+<%- include('partials/footer');  %>
