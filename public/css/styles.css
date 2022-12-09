@@ -206,6 +206,8 @@ section#hero__area .hero__buttons button:hover {
   padding: 0.7rem 2rem;
   border: 1px solid rgb(168, 168, 168);
   outline: none;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.1rem;
 }
 
 .register__area form .input__area .input__control input[type=text]
@@ -221,6 +223,96 @@ section#hero__area .hero__buttons button:hover {
 }
 
 .register__area form .register__btn button {
+  width: 100%;
+  text-align: center;
+  color: white;
+  border: none;
+  background: blue;
+  padding: 0.7rem 0;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+
+/* 
+  -- Login Form
+*/
+
+.login__area {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url("https://plus.unsplash.com/premium_photo-1661558975897-d0427647a9c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGJsb2dzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login__area form {
+  width: 600px;
+  height: 350px;
+  background: white;
+  padding: 1rem;
+}
+
+.login__area form .form__header {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-bottom: 1.3rem;
+}
+
+.login__area form .form__header h1 {
+  font-size: 2rem;
+  color: black;
+}
+
+.login__area form .form__header p {
+  color: gray;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+}
+
+.login__area form .input__area {
+  margin-top: 1rem;
+}
+
+.login__area form .input__area .input__control {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.login__area form .input__area .input__control label {
+  margin-bottom: 0.6rem;
+  text-transform: capitalize;
+}
+
+.login__area form .input__area .input__control input {
+  padding: 0.7rem 2rem;
+  border: 1px solid rgb(168, 168, 168);
+  outline: none;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.1rem;
+}
+
+.login__area form .input__area .input__control input[type=text]
+.login__area form .input__area .input__control input[type="text"]
+.login__area form .input__area .input__control input[type="email"]
+.login__area form .input__area .input__control input[type=email] {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.1rem;
+}
+
+.login__area form .login__btn {
+  margin: 0 1rem;
+}
+
+.login__area form .login__btn button {
   width: 100%;
   text-align: center;
   color: white;
