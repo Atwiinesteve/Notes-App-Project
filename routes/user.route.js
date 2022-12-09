@@ -8,13 +8,21 @@ const router = Router();
 const { 
     registerForm, 
     loginForm, 
-    welcomeUser
+    welcomeUser,
+    registerUser,
+    loginUser
 } = require("../controllers/user.controllers");
+const { checkUser } = require("../middlewares/check.user");
 
 // get methods.
+// router.get("*", checkUser);
 router.get("/", welcomeUser);
 router.get("/register", registerForm);
 router.get("/login", loginForm);
+
+// post methods
+router.post("/register", registerUser)
+router.post("/login", loginUser)
 
 // export router.
 module.exports = router;

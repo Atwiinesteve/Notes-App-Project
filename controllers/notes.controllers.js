@@ -5,6 +5,18 @@ const welcome = (request, response) => {
   // response.status(200).json({ message: 'Welcome to the Diary App..' });
 };
 
+// all posts page
+const postsPage = (request, response) => {
+  try {
+    return response.status(200).render("posts", { title: "Notes App.." })    
+  } catch (error) {
+    console.log({
+      name: error.name,
+      message: error.message
+    })
+  }
+}
+
 const getAllNotes = async (request, response) => {
   try {
     const notes = await Notes.find();
@@ -84,6 +96,7 @@ const deleteNote = async (request, response) => {
 
 module.exports = {
   welcome,
+  postsPage,
   getAllNotes,
   getOneNote,
   createNote,
