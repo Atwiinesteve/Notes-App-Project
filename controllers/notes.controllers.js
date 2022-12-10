@@ -1,12 +1,29 @@
+// import schemas
 const Notes = require('../models/notes.model');
+const User = require("../models/user.model");
 
+// welcome
 const welcome = (request, response) => {
   response.status(200).render('index', { title: 'Diary App', message: 'Welcome to the Diary App..' })
   // response.status(200).json({ message: 'Welcome to the Diary App..' });
 };
 
+// get dashboard
+const getDashboard = async (request, response) => {
+  try {
+    // const user = await User.findOne({ email: request.body.email })
+    return response.status(200).render("dashboard", { title: "Notes App: Dashboard", user: request.user})
+  } catch (error) {
+    console.log({
+      name: error.name,
+      message: error.message,
+      stack: error.stack
+    })
+  }
+}
+
 // all posts page
-const postsPage = (request, response) => {
+const notesPage = (request, response) => {
   try {
     return response.status(200).render("posts", { title: "Notes App.." })    
   } catch (error) {
@@ -17,12 +34,12 @@ const postsPage = (request, response) => {
   }
 }
 
+// all notes
 const getAllNotes = async (request, response) => {
   try {
     const notes = await Notes.find();
     if(notes) {
-      // return response.json({ message: allNotes })
-      return await response.render('index', { messagew: notes })
+      return response.render('notes', { title: "Notes App", notes: notes })
     } else {
       return response.json({ message: 'No Notes Found...' })
     }
@@ -36,6 +53,7 @@ const getAllNotes = async (request, response) => {
 
 };
 
+// get one note
 const getOneNote = async (request, response) => {
   try {
     const id = request.params.id;
@@ -54,6 +72,7 @@ const getOneNote = async (request, response) => {
   }
 };
 
+// create note
 const createNote = async (request, response) => {
   try {
 
@@ -72,6 +91,7 @@ const createNote = async (request, response) => {
   }
 };
 
+// update note
 const updateNote = async (request, response) => {
   try {
     const id = request.params.id;
@@ -83,6 +103,7 @@ const updateNote = async (request, response) => {
   }
 };
 
+// delete note
 const deleteNote = async (request, response) => {
   try {
     const id = request.params.id;
@@ -94,9 +115,11 @@ const deleteNote = async (request, response) => {
   }
 };
 
+// exports
 module.exports = {
   welcome,
-  postsPage,
+  notesPage,
+  getDashboard,
   getAllNotes,
   getOneNote,
   createNote,

@@ -15,7 +15,7 @@ const {
 const { checkUser } = require("../middlewares/check.user");
 
 // get methods.
-// router.get("*", checkUser);
+router.get("*", checkUser);
 router.get("/", welcomeUser);
 router.get("/register", registerForm);
 router.get("/login", loginForm);

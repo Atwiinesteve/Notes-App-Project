@@ -6,7 +6,7 @@ require("dotenv").config();
 const User = require("../models/user.model");
 
 // check user
-const checkUser = async (request, response, next) => {
+const checkUser = (request, response, next) => {
     const token = request.cookies.token;
     if(token) {
         jwt.verify(token, process.env.TOKEN, async(error, decodedtoken) => {

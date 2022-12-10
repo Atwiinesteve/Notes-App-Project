@@ -69,7 +69,7 @@ const loginUser = async (request, response) => {
                 const maxAge = 1*24*60*60;
                 const token = jwt.sign({ _id: user._id }, process.env.TOKEN, { expiresIn: maxAge });
                 response.cookie("token", token, { httpOnly: true, SameSite: true, maxAge: maxAge });
-                response.redirect("/");
+                response.redirect("/dashboard");
             }
         }
     } catch (error) {
