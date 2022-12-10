@@ -4,16 +4,22 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const cookieParser = require("cookie-parser");
 const path = require('path');
-
+const cors = require("cors");
 
 require('dotenv').config();
+
+const corsOptions = {
+  origin: [ "http://localhost:4040", "http://127.0.0.1:4040", "http://127.0.0.1/:1" ],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+}
 
 const app = express();
 const PORT = process.env.PORT||3000;
 
-app.set('views', path.join(__dirname, 'views'));
+
 app.set('view engine', 'ejs');
 
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.json());
