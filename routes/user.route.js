@@ -5,16 +5,16 @@ const { Router } = require("express");
 const router = Router();
 
 // import custom controllers
-const { 
+const {
+    welcomeUser,
+    getDashboard,
     registerForm, 
     loginForm, 
-    welcomeUser,
     registerUser,
     loginUser,
     logoutUser
 } = require("../controllers/user.controllers");
 const { checkUser } = require("../middlewares/check.user");
-const { getDashboard } = require("../controllers/notes.controllers");
 const { authUser } = require("../middlewares/authenticate.user");
 
 // get methods.
@@ -26,7 +26,7 @@ router.get("/logout", logoutUser);
 router.get("/dashboard", authUser, getDashboard);
 
 // post methods
-router.post("/register", registerUser)
+router.post("/register", registerUser);
 router.post("/login", loginUser)
 
 // export router.

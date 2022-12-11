@@ -1,4 +1,5 @@
 // import modules
+const express = require("express");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
@@ -7,7 +8,7 @@ const User = require("../models/user.model");
 
 // check user
 const checkUser = (request, response, next) => {
-    const token = request.cookies.auth_token;
+    const token = request.cookies.token;
     if(token) {
         jwt.verify(token, process.env.TOKEN, async(error, decodedtoken) => {
             if(error) {

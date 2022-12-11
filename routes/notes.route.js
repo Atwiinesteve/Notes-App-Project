@@ -10,7 +10,6 @@ const {
   updateNote,
   deleteNote,
   notesPage,
-  getDashboard
 
 } = require('../controllers/notes.controllers');
 const { authUser } = require('../middlewares/authenticate.user');
@@ -19,10 +18,9 @@ const { checkUser } = require('../middlewares/check.user');
 // get methods
 // route.get("*", checkUser)
 route.get('/', welcome);
-route.get("/notes", notesPage);
+route.get("/notes", authUser, notesPage);
 route.get('/view-notes', authUser, getAllNotes);
 route.get('/note/:id', getOneNote);
-route.get("/dashboard", authUser, getDashboard);
 
 
 // post method
