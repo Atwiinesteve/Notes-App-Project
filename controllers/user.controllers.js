@@ -2,6 +2,8 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+require("dotenv").config();
+
 // import schema
 const User = require("../models/user.model");
 
@@ -68,10 +70,20 @@ const loginUser = async (request, response) => {
             } else {
                 const maxAge = 1*24*60*60;
                 const token = jwt.sign({ _id: user._id }, process.env.TOKEN, { expiresIn: maxAge });
-                response.cookie("token", token, { httpOnly: true, SameSite: true, maxAge: maxAge });
-                response.redirect("/dashboard");
+                response.cookie("auth_token", token, { httpOnly: true,  maxAge: maxAge*1000 });
+                response.render("notes", { user: user, title: "User Notes"});
             }
         }
+    } catch (error) {
+        console.log({ name: error.name, message: error.message })
+    }
+}
+
+// logout User
+const logoutUser = async (request, response) => {
+    try {
+        response.cookie("auth_token", "", { maxAge: 0.0001 });
+        response.redirect("/login");
     } catch (error) {
         console.log({ name: error.name, message: error.message })
     }
@@ -84,4 +96,5 @@ module.exports = {
     loginForm,
     registerUser,
     loginUser,
+    logoutUser,
 }
