@@ -6,15 +6,43 @@
     - All/main posts
 -->
 
-<div class="posts__container">
-
-    <p>notes....</p>
-
-    <%= user.email %>
+<div class="notes__container">
 
     <div class="notes">
         
-        
+        <% if(notes) { %>
+            <% notes.forEach(note => { %>
+                <div class="note">
+                    <div class="note__title">
+                        <%= note.title %>
+                    </div>
+                    <div class="note__content">
+                        <%= note.content %>
+                    </div>
+                    <div class="note__author">
+                        <%= note.author %>
+                    </div>
+                    <div class="note__footer">
+                        <div class="operations">
+                            <span>
+                                <a href="/delete"> <i class="fa fa-trash-o"></i> </a>
+                            </span>
+                            <span>
+                                <a href="/read"> <i class="fa fa-file-text-o"></i> </a>
+                            </span>
+                            <span>
+                                <a href="/share"> <i class="fa fa-share-alt"></i> </a>
+                            </span>
+                            <span>
+                                <a href="/edit"> <i class="material-icons">mode_edit</i> </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>no notes available</p>
+        <% } %>
 
     </div>
 

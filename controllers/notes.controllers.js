@@ -1,6 +1,6 @@
 // import schemas
 const Notes = require('../models/notes.model');
-const User = require("../models/user.model");
+const User = require('../models/user.model');
 
 // welcome
 const welcome = (request, response) => {
@@ -8,25 +8,12 @@ const welcome = (request, response) => {
   // response.status(200).json({ message: 'Welcome to the Diary App..' });
 };
 
-// get dashboard
-const getDashboard = async (request, response) => {
-  try {
-    // const user = await User.findOne({ email: request.body.email })
-    return response.status(200).render("dashboard", { title: "Notes App: Dashboard"})
-  } catch (error) {
-    console.log({
-      name: error.name,
-      message: error.message,
-      stack: error.stack
-    })
-  }
-}
-
 // all posts page
 const notesPage = async(request, response) => {
   try {
-    const notes = await Notes.find();
-    if(notes) {
+    // const user = await User.find({ email: request.body.email }); I will star tfrom here tomorrow.
+    let notes = await Notes.find();
+    if(notes && user) {
       return response.status(200).render("notes", { title: "Notes App..", notes: notes })    
     }
   } catch (error) {
@@ -122,7 +109,6 @@ const deleteNote = async (request, response) => {
 module.exports = {
   welcome,
   notesPage,
-  getDashboard,
   getAllNotes,
   getOneNote,
   createNote,
