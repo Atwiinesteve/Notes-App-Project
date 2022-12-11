@@ -20,7 +20,7 @@ const { checkUser } = require('../middlewares/check.user');
 // route.get("*", checkUser)
 route.get('/', welcome);
 route.get("/notes", notesPage);
-route.get('/view-notes', getAllNotes);
+route.get('/view-notes', authUser, getAllNotes);
 route.get('/note/:id', getOneNote);
 route.get("/dashboard", authUser, getDashboard);
 

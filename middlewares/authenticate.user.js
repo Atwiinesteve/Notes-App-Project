@@ -4,18 +4,17 @@ require("dotenv").config();
 
 // authenticate user
 const authUser = async (request, response, next) => {
-    const token = request.cookies.token;
+    const token = request.cookies.auth_token;
     if(token) {
         jwt.verify(token, process.env.TOKEN, async(error) => {
             if(error) {
-                response.status(401).redirect("/login")
-                next();
+                response.redirect("/login")
             } else {
                 next();
             }
         })
     } else {
-        response.status(401).redirect("/login")
+        response.redirect("/login")
     }
 };
 

@@ -12,7 +12,7 @@ const welcome = (request, response) => {
 const getDashboard = async (request, response) => {
   try {
     // const user = await User.findOne({ email: request.body.email })
-    return response.status(200).render("dashboard", { title: "Notes App: Dashboard", user: request.user})
+    return response.status(200).render("dashboard", { title: "Notes App: Dashboard"})
   } catch (error) {
     console.log({
       name: error.name,
@@ -23,9 +23,12 @@ const getDashboard = async (request, response) => {
 }
 
 // all posts page
-const notesPage = (request, response) => {
+const notesPage = async(request, response) => {
   try {
-    return response.status(200).render("posts", { title: "Notes App.." })    
+    const notes = await Notes.find();
+    if(notes) {
+      return response.status(200).render("notes", { title: "Notes App..", notes: notes })    
+    }
   } catch (error) {
     console.log({
       name: error.name,
