@@ -10,7 +10,7 @@
 
 body {
   font-family: 'Quicksand', sans-serif;
-  background-color: rgb(246, 251, 255);
+  background-color: rgb(234, 240, 245);
   overflow-x: hidden;
   scroll-behavior: smooth;
   position: relative;
@@ -339,9 +339,12 @@ section#hero__area .hero__buttons button:hover {
 
 .notes__container {
   width: 100%;
-  height: 600px;
-  margin: 1rem;
+  height: 100vh;
   padding: 1rem;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("https://images.unsplash.com/photo-1568150279679-d16bc9eb9eb1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhcnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .notes__container .notes {
@@ -436,4 +439,84 @@ section#hero__area .hero__buttons button:hover {
 
 .notes__container .notes .note .note__footer span a i {
   color: white;
+}
+
+.create__post__area {
+  width: 300px;
+  height: 300px;
+  border-radius: 2px;
+  border: 6px dashed rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem;
+}
+
+.create__post__area p {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.create__note__form {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.747), rgba(0, 0, 0, 0.774)), url("https://images.unsplash.com/photo-1579017308347-e53e0d2fc5e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZGlhcnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.create__note__form form {
+  background-color: white;
+  padding: 1rem;
+  width: 400px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.create__note__form form .header h4 {
+  text-align: center;
+  font-weight: bolder;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  letter-spacing: 5px;
+}
+
+.create__note__form form .input__area .input__control {
+  display: flex;
+  flex-direction: column;
+  margin: 0.7rem 0;
+}
+
+.create__note__form form .input__area .input__control input,
+.create__note__form form .input__area .input__control textarea {
+  padding: 0.6rem 1rem;
+  border: 0.7px solid gray;
+  outline: none;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.1rem;
+}
+
+.create__note__form form .create__note__btn button {
+  width: 300px;
+  padding: 0.6rem 1rem;
+  color: white;
+  background: blue;
+  outline: none;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  border: none;
+}
+
+.create__note__form form .create__note__btn button:hover {
+  cursor: pointer;
 }
