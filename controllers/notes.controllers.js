@@ -8,12 +8,25 @@ const welcome = (request, response) => {
   // response.status(200).json({ message: 'Welcome to the Diary App..' });
 };
 
+// create note form
+const createNoteForm = (request, response) => {
+  try {
+    return response.status(200).render("create-note", { title: "Create Note.." })
+  } catch (error) {
+    console.log({
+      name: error.name,
+      message: error.message,
+      stack: error.stack
+    })
+  }
+}
+
 // all posts page
 const notesPage = async(request, response) => {
   try {
     // const user = await User.find({ email: request.body.email }); I will star tfrom here tomorrow.
     let notes = await Notes.find();
-    if(notes && user) {
+    if(notes) {
       return response.status(200).render("notes", { title: "Notes App..", notes: notes })    
     }
   } catch (error) {
@@ -73,7 +86,7 @@ const createNote = async (request, response) => {
     });
 
     note.save()
-      .then(() => { response.json({ message: note }) })
+      .then(() => { response.status(200).redirect("/notes") })
       .catch((error) => { console.log({ name: error.name, message: error.message, stack: error.stack }); })
       
   } catch (error) {
@@ -98,8 +111,8 @@ const deleteNote = async (request, response) => {
   try {
     const id = request.params.id;
     const note = await Notes.findByIdAndDelete(id);
-    if(note) return response.json({ message: 'Note Successfully Deleted..' })
-    return response.json({ message: 'Error trying to delete note..' })
+    if(note) return response.status(200).redirect("/notes")
+    return response.json({ message: 'Failed to delete note..' })
   } catch (error) {
     console.log({ name: error.name, message: error.message, stack: error.stack });
   }
@@ -108,6 +121,7 @@ const deleteNote = async (request, response) => {
 // exports
 module.exports = {
   welcome,
+  createNoteForm,
   notesPage,
   getAllNotes,
   getOneNote,

@@ -1,0 +1,30 @@
+<%- include("partials/header"); %>
+
+<%- include("partials/navbar"); %>
+
+<div class="create__note__form">
+    <form action="/create-note" method="post">
+        <div class="header">
+            <h4>Create Note</h4>
+        </div>
+        <div class="input__area">
+            <div class="input__control">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+            </div>
+            <div class="input__control">
+                <label for="content">Content</label>
+                <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            </div>
+            <div class="input__control">
+                <label for="author">Author</label>
+                <input type="text" name="author" id="author">
+            </div>
+        </div>
+        <div class="create__note__btn">
+            <button class="btn btn-primary" type="submit">Create post</button>
+        </div>
+    </form>
+</div>
+
+<%- include("partials/footer"); %>
