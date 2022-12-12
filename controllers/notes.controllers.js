@@ -110,7 +110,7 @@ const updateNote = async (request, response) => {
 const deleteNote = async (request, response) => {
   try {
     const id = request.params.id;
-    const note = await Notes.findByIdAndDelete(id);
+    const note = await Notes.findByIdAndDelete({ _id: id })
     if(note) return response.status(200).redirect("/notes")
     return response.json({ message: 'Failed to delete note..' })
   } catch (error) {

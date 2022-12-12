@@ -28,7 +28,7 @@ route.post('/create-note', createNote);
 route.patch('/update-note/:id', updateNote);
 
 // delete method
-route.delete('/delete-note/:id', deleteNote);
+route.delete("/delete-note/:id", deleteNote);
 
 // exports
 module.exports = route;
