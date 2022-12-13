@@ -85,6 +85,49 @@ nav .links--area ul li a {
   font-weight: bolder ;
 }
 
+@media screen and (max-width: 768px) {
+
+  section#hero__area .hero__heading h2 {
+    font-size: 2.2rem!important;
+    font-weight: bolder!important;
+  }
+
+  section#hero__area .hero__heading h4 {
+    font-size: 1.5rem!important;
+    font-weight: 100!important;
+  }
+
+  nav {
+    padding: 0 1rem;
+  }
+  
+  nav .logo--area .logo a img {
+    width: 30px;
+    height: auto;
+    margin-right: 1rem;
+  }
+
+  nav .links--area .menu-links li,
+  nav .links--area .menu-links li a {
+    font-size: 0.8rem;
+  }
+
+  .login__area form {
+    width: 420px!important;
+    height: 380px;
+    background: white;
+    padding: 1rem;
+  }
+
+  .register__area form {
+    width: 420px!important;
+    height: 380px;
+    background: white;
+    padding: 1rem;
+  }
+
+}
+
 
 /* 
   -- Hero Area Styles
@@ -338,13 +381,13 @@ section#hero__area .hero__buttons button:hover {
 */
 
 .notes__container {
-  width: 100%;
-  height: 100vh;
+  width: 100vw;
   padding: 1rem;
   background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("https://images.unsplash.com/photo-1568150279679-d16bc9eb9eb1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhcnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .notes__container .notes {
